@@ -1,0 +1,27 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 max-w-md mx-auto text-center">
+
+    <p class="text-5xl mb-4">🗑️</p>
+    <h1 class="text-xl font-bold text-gray-800 mb-2">Excluir tarefa?</h1>
+    <p class="text-gray-500 text-sm mb-6">
+        Você está prestes a excluir <strong>"{{ task.title }}"</strong>. Essa ação não pode ser desfeita.
+    </p>
+
+    <form method="post" class="flex gap-3 justify-center">
+        {% csrf_token %}
+        <button type="submit"
+                class="bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition">
+            Sim, excluir
+        </button>
+        <a href="{% url 'task_list' %}"
+           class="text-sm text-gray-500 hover:text-gray-700 px-4 py-2 transition">
+            Cancelar
+        </a>
+    </form>
+
+</div>
+
+{% endblock %}
